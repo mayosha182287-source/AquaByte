@@ -1,0 +1,1251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AquaByte: A smart and sustainable data center cooling research project.">
+<title>AquaByte | Smart Cooling Research</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg: #101C2C;
+  --panel: #17283A;
+  --panel2: #1D3547;
+  --aqua: #19B7A5;
+  --aqua-light: #45D6C5;
+  --white: #F4F8FA;
+  --muted: #A8BAC8;
+  --light-bg: #EAF1F3;
+  --dark-text: #183444;
+  --border: rgba(255,255,255,.10);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; }
+
+.container {
+  width: 84%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar {
+  height: 78px;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(16,28,44,.96);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(15px);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: white;
+}
+
+.logo span { color: var(--aqua-light); }
+
+.logo i {
+  color: var(--aqua);
+  margin-right: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.nav-links a:hover { color: var(--aqua-light); }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 45%, #19b7a51d, transparent 35%),
+    linear-gradient(120deg,#101C2C,#153D50);
+}
+
+.hero-content {
+  width: 84%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+  padding: 90px 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px;
+  border: 1px solid #45D6C544;
+  border-radius: 30px;
+  color: var(--aqua-light);
+  background: #19b7a511;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  max-width: 750px;
+  font-size: clamp(45px,6vw,76px);
+  line-height: 1.08;
+  letter-spacing: -3px;
+  margin-bottom: 25px;
+}
+
+.hero h1 span { color: var(--aqua-light); }
+
+.hero p {
+  max-width: 660px;
+  color: #B7C8D2;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 35px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 23px;
+  border-radius: 8px;
+  background: var(--aqua);
+  color: #082A31;
+  font-weight: 700;
+  font-size: 13px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--aqua-light);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #ffffff44;
+  color: white;
+}
+
+.btn-outline:hover { color: #082A31; }
+
+.hero-visual {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 350px;
+  height: 350px;
+  border: 1px solid #45D6C522;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.hero-visual::before,
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #45D6C522;
+  border-radius: 50%;
+}
+
+.hero-visual::before { width: 270px; height: 270px; }
+.hero-visual::after { width: 190px; height: 190px; }
+
+.hero-visual i {
+  font-size: 100px;
+  color: var(--aqua-light);
+  z-index: 1;
+  filter: drop-shadow(0 0 30px #19B7A555);
+}
+
+.hero-label {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  color: var(--aqua-light);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* GENERAL SECTIONS */
+
+section { padding: 95px 0; }
+
+.section-heading {
+  margin-bottom: 45px;
+}
+
+.section-heading .small-title {
+  color: var(--aqua);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px,4vw,43px);
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  max-width: 700px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.center { text-align: center; }
+.center p { margin: auto; }
+
+/* PROBLEM */
+
+.problem {
+  background: var(--light-bg);
+  color: var(--dark-text);
+}
+
+.problem .section-heading p { color: #607985; }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.problem-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #dce7e9;
+  transition: .3s;
+}
+
+.problem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px #18344412;
+}
+
+.icon-box {
+  width: 52px;
+  height: 52px;
+  background: #E2F5F2;
+  color: #168F91;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.problem-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.problem-card p {
+  color: #718895;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* SOLUTION */
+
+.solution { background: var(--bg); }
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.solution-card {
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  transition: .3s;
+}
+
+.solution-card:hover {
+  border-color: #19B7A566;
+  transform: translateY(-4px);
+}
+
+.solution-card .icon-box {
+  flex-shrink: 0;
+  background: #19B7A51A;
+  color: var(--aqua-light);
+}
+
+.solution-card h3 {
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+
+.solution-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* PROCESS */
+
+.process {
+  background: #142536;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 13px;
+}
+
+.process-card {
+  padding: 24px 15px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  position: relative;
+}
+
+.process-card .step-no {
+  font-size: 11px;
+  color: var(--aqua);
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.process-card i {
+  display: block;
+  font-size: 30px;
+  color: var(--aqua-light);
+  margin: 20px 0;
+}
+
+.process-card h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.process-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.flow-caption {
+  text-align: center;
+  margin-top: 25px;
+  color: var(--aqua-light);
+  font-size: 13px;
+}
+
+/* ARCHITECTURE */
+
+.architecture {
+  background: var(--light-bg);
+  color: var(--dark-text);
+}
+
+.architecture .section-heading p { color: #607985; }
+
+.architecture-box {
+  background: #142536;
+  padding: 35px;
+  border-radius: 15px;
+  color: white;
+}
+
+.architecture-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ffffff22;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.architecture-title span {
+  color: var(--aqua-light);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.architecture-flow {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+}
+
+.arch-item {
+  padding: 22px 12px;
+  background: var(--panel2);
+  border-radius: 9px;
+  text-align: center;
+}
+
+.arch-item i {
+  font-size: 27px;
+  color: var(--aqua-light);
+  margin-bottom: 12px;
+}
+
+.arch-item h4 { font-size: 13px; }
+.arch-item p { color: var(--muted); font-size: 11px; margin-top: 5px; }
+
+.arch-note {
+  margin-top: 20px;
+  color: #A8BAC8;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* RESULTS */
+
+.results-section { background: var(--bg); }
+
+.notice {
+  padding: 17px 20px;
+  background: #3b321e;
+  color: #F1D58A;
+  border-left: 3px solid #E6BD55;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.metric {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 25px;
+  border-radius: 11px;
+}
+
+.metric i { color: var(--aqua-light); font-size: 23px; }
+
+.metric h3 {
+  font-size: 30px;
+  margin: 12px 0 4px;
+  color: white;
+}
+
+.metric p { font-size: 12px; color: var(--muted); }
+
+.calculator {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.calculator h3 { font-size: 20px; margin-bottom: 8px; }
+
+.calculator > p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  color: #D5E3E8;
+  margin-bottom: 8px;
+}
+
+.field input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 7px;
+  background: #101C2C;
+  color: white;
+  border: 1px solid #ffffff22;
+  font-family: inherit;
+  outline: none;
+}
+
+.field input:focus { border-color: var(--aqua); }
+
+.calculate {
+  background: var(--aqua);
+  color: #082A31;
+  border: none;
+  padding: 13px 23px;
+  margin-top: 23px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.calculate:hover { background: var(--aqua-light); }
+
+.calculated-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.calculated {
+  background: #101C2C;
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.calculated strong {
+  display: block;
+  color: var(--aqua-light);
+  font-size: 25px;
+  margin-top: 8px;
+}
+
+/* RESEARCH */
+
+.research {
+  background: var(--light-bg);
+  color: var(--dark-text);
+}
+
+.research .section-heading p { color: #607985; }
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.research-card {
+  padding: 27px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #dce7e9;
+}
+
+.research-card i {
+  font-size: 25px;
+  color: #168F91;
+  margin-bottom: 18px;
+}
+
+.research-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.research-card p {
+  font-size: 13px;
+  color: #718895;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+  background: #0B1522;
+  padding: 45px 8%;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+footer .logo { margin-bottom: 12px; }
+
+footer p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px) {
+  .hero-visual { opacity: .2; right: -80px; }
+  .process-grid { grid-template-columns: repeat(3,1fr); }
+}
+
+@media(max-width:700px) {
+  .navbar { padding: 0 6%; }
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: #101C2C;
+    flex-direction: column;
+    padding: 25px 8%;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.active { display: flex; }
+
+  .container, .hero-content { width: 88%; }
+
+  .hero { min-height: 580px; }
+  .hero h1 { letter-spacing: -2px; }
+
+  .problem-grid,
+  .solution-grid,
+  .metrics-grid,
+  .research-grid { grid-template-columns: 1fr; }
+
+  .process-grid { grid-template-columns: repeat(2,1fr); }
+  .architecture-flow { grid-template-columns: repeat(2,1fr); }
+  .input-grid { grid-template-columns: 1fr; }
+  .calculated-grid { grid-template-columns: 1fr; }
+
+  section { padding: 70px 0; }
+  .architecture-box { padding: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <a href="#home" class="logo">
+    <i class="fa-solid fa-droplet"></i>Aqua<span>Byte</span>
+  </a>
+
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#problem">The Problem</a>
+    <a href="#solution">Our Solution</a>
+    <a href="#process">How It Works</a>
+    <a href="#results">Expected Results</a>
+    <a href="#research">Research</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">
+      <i class="fa-solid fa-microchip"></i>
+      SUSTAINABLE COMPUTING RESEARCH
+    </div>
+
+    <h1>Engineering a Smarter Future for <span>Data Center Cooling.</span></h1>
+
+    <p>
+      AquaByte explores an intelligent cooling approach that combines
+      adaptive water-flow management, rice-husk-derived biochar,
+      and heat exchange to investigate more sustainable data center operations.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#solution" class="btn">Explore Our Innovation</a>
+      <a href="#results" class="btn btn-outline">Explore Performance</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <i class="fa-solid fa-microchip"></i>
+    <div class="hero-label">AQUABYTE / RESEARCH SYSTEM</div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+
+<section class="problem" id="problem">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="small-title">01 / THE CHALLENGE</div>
+      <h2>The Cooling Challenge</h2>
+      <p>
+        As AI and high-performance computing expand, data centers face
+        increasing thermal-management demands. Cooling systems must
+        balance reliable heat removal with responsible resource use.
+      </p>
+    </div>
+
+    <div class="problem-grid">
+
+      <div class="problem-card">
+        <div class="icon-box"><i class="fa-solid fa-droplet"></i></div>
+        <h3>Water Consumption</h3>
+        <p>
+          Some data center cooling approaches require substantial water
+          resources. Reducing water loss and improving reuse are important
+          sustainability challenges.
+        </p>
+      </div>
+
+      <div class="problem-card">
+        <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Energy Demand</h3>
+        <p>
+          Pumps, chillers, and other cooling equipment consume electricity.
+          Unnecessary cooling demand can increase the overall energy burden.
+        </p>
+      </div>
+
+      <div class="problem-card">
+        <div class="icon-box"><i class="fa-solid fa-temperature-high"></i></div>
+        <h3>Uneven Heat Distribution</h3>
+        <p>
+          Different computing components can produce different heat loads.
+          A uniform flow strategy may not always match local cooling needs.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+
+<section class="solution" id="solution">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="small-title">02 / OUR INNOVATION</div>
+      <h2>Introducing AquaByte</h2>
+      <p>
+        Our proposed system combines intelligent monitoring,
+        controlled water circulation, and a biochar-based stage
+        to investigate improved thermal management and water reuse.
+      </p>
+    </div>
+
+    <div class="solution-grid">
+
+      <div class="solution-card">
+        <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+        <div>
+          <h3>Intelligent Monitoring</h3>
+          <p>
+            Temperature sensors monitor the cooling loop and help identify
+            when specific areas require additional cooling.
+          </p>
+        </div>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon-box"><i class="fa-solid fa-sliders"></i></div>
+        <div>
+          <h3>Adaptive Flow Management</h3>
+          <p>
+            A controlled pump and valves regulate water distribution
+            according to monitored thermal conditions.
+          </p>
+        </div>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
+        <div>
+          <h3>Rice Husk Biochar</h3>
+          <p>
+            A porous biochar-based material derived from rice husk
+            is investigated as an intermediate component in the system.
+          </p>
+        </div>
+      </div>
+
+      <div class="solution-card">
+        <div class="icon-box"><i class="fa-solid fa-arrows-rotate"></i></div>
+        <div>
+          <h3>Closed-Loop Water Reuse</h3>
+          <p>
+            The design aims to circulate and reuse cooling water,
+            minimizing unnecessary water discharge.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+
+<section class="process" id="process">
+  <div class="container">
+
+    <div class="section-heading center">
+      <div class="small-title">03 / SYSTEM OPERATION</div>
+      <h2>How Does AquaByte Work?</h2>
+      <p>
+        A proposed sequence that connects temperature detection,
+        controlled flow, material-based heat management, and water reuse.
+      </p>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="process-card">
+        <span class="step-no">STEP 01</span>
+        <i class="fa-solid fa-temperature-half"></i>
+        <h3>Detection</h3>
+        <p>Sensors monitor water temperature and detect programmed thresholds.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="step-no">STEP 02</span>
+        <i class="fa-solid fa-faucet"></i>
+        <h3>Flow Control</h3>
+        <p>Valves direct the water through the selected cooling pathway.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="step-no">STEP 03</span>
+        <i class="fa-solid fa-seedling"></i>
+        <h3>Biochar Stage</h3>
+        <p>The thermal performance of the porous biochar section is evaluated.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="step-no">STEP 04</span>
+        <i class="fa-solid fa-fan"></i>
+        <h3>Heat Exchange</h3>
+        <p>A heat exchanger provides the final cooling stage when required.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="step-no">STEP 05</span>
+        <i class="fa-solid fa-rotate"></i>
+        <h3>Water Return</h3>
+        <p>Water returns to the circulation loop for continued use.</p>
+      </div>
+
+    </div>
+
+    <div class="flow-caption">
+      GPU / Heat Source → Sensors → Biochar Stage → Heat Exchanger → Water Return
+    </div>
+
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+
+<section class="architecture">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="small-title">04 / SYSTEM ARCHITECTURE</div>
+      <h2>Inside the Proposed System</h2>
+      <p>
+        A simplified view of the main components being investigated
+        in the AquaByte prototype.
+      </p>
+    </div>
+
+    <div class="architecture-box">
+
+      <div class="architecture-title">
+        <h3>AquaByte / Cooling Architecture</h3>
+        <span>CONCEPTUAL MODEL</span>
+      </div>
+
+      <div class="architecture-flow">
+
+        <div class="arch-item">
+          <i class="fa-solid fa-server"></i>
+          <h4>GPU / Heat Source</h4>
+          <p>Thermal load</p>
+        </div>
+
+        <div class="arch-item">
+          <i class="fa-solid fa-temperature-half"></i>
+          <h4>Temperature Sensors</h4>
+          <p>Data collection</p>
+        </div>
+
+        <div class="arch-item">
+          <i class="fa-solid fa-sliders"></i>
+          <h4>Smart Control</h4>
+          <p>Pump and valves</p>
+        </div>
+
+        <div class="arch-item">
+          <i class="fa-solid fa-seedling"></i>
+          <h4>Biochar Section</h4>
+          <p>Material evaluation</p>
+        </div>
+
+        <div class="arch-item">
+          <i class="fa-solid fa-fan"></i>
+          <h4>Heat Exchanger</h4>
+          <p>Final heat removal</p>
+        </div>
+
+        <div class="arch-item">
+          <i class="fa-solid fa-droplet"></i>
+          <h4>Water Loop</h4>
+          <p>Water circulation</p>
+        </div>
+
+        <div class="arch-item">
+          <i class="fa-solid fa-chart-line"></i>
+          <h4>Performance Data</h4>
+          <p>System evaluation</p>
+        </div>
+
+        <div class="arch-item">
+          <i class="fa-solid fa-recycle"></i>
+          <h4>Water Reuse</h4>
+          <p>Closed-loop operation</p>
+        </div>
+
+      </div>
+
+      <p class="arch-note">
+        Note: This is a conceptual component overview, not a finalized
+        piping diagram. The actual arrangement will be determined
+        through prototype development and testing.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+
+<section class="results-section" id="results">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="small-title">05 / PERFORMANCE EVALUATION</div>
+      <h2>Expected Results & Performance</h2>
+      <p>
+        AquaByte will be evaluated through measurable comparisons
+        between a baseline cooling setup and the proposed prototype.
+      </p>
+    </div>
+
+    <div class="notice">
+      <i class="fa-solid fa-circle-info"></i>
+      No savings percentages are assumed in advance. The dashboard
+      starts without results. Enter experimental measurements to
+      calculate the actual differences.
+    </div>
+
+    <div class="metrics-grid">
+
+      <div class="metric">
+        <i class="fa-solid fa-droplet"></i>
+        <h3 id="waterSaving">--</h3>
+        <p>Water consumption reduction</p>
+      </div>
+
+      <div class="metric">
+        <i class="fa-solid fa-bolt"></i>
+        <h3 id="energySaving">--</h3>
+        <p>Energy consumption reduction</p>
+      </div>
+
+      <div class="metric">
+        <i class="fa-solid fa-recycle"></i>
+        <h3 id="waterReuse">--</h3>
+        <p>Water reuse ratio</p>
+      </div>
+
+    </div>
+
+    <div class="calculator">
+
+      <h3><i class="fa-solid fa-flask"></i> Experimental Data Calculator</h3>
+      <p>
+        Enter measurements from the same test duration and operating conditions.
+        Use consistent units for each comparison.
+      </p>
+
+      <div class="input-grid">
+
+        <div class="field">
+          <label>Baseline water consumption (L)</label>
+          <input type="number" id="baseWater" min="0" step="any" placeholder="Enter baseline value">
+        </div>
+
+        <div class="field">
+          <label>Prototype water consumption (L)</label>
+          <input type="number" id="newWater" min="0" step="any" placeholder="Enter prototype value">
+        </div>
+
+        <div class="field">
+          <label>Baseline energy consumption (Wh)</label>
+          <input type="number" id="baseEnergy" min="0" step="any" placeholder="Enter baseline value">
+        </div>
+
+        <div class="field">
+          <label>Prototype energy consumption (Wh)</label>
+          <input type="number" id="newEnergy" min="0" step="any" placeholder="Enter prototype value">
+        </div>
+
+        <div class="field">
+          <label>Total water entering the loop (L)</label>
+          <input type="number" id="inputWater" min="0" step="any" placeholder="Enter water input">
+        </div>
+
+        <div class="field">
+          <label>Water successfully reused (L)</label>
+          <input type="number" id="reusedWater" min="0" step="any" placeholder="Enter reused water">
+        </div>
+
+      </div>
+
+      <button class="calculate" onclick="calculateResults()">
+        Calculate Performance
+      </button>
+
+      <div class="calculated-grid">
+
+        <div class="calculated">
+          Water reduction
+          <strong id="waterOutput">--</strong>
+        </div>
+
+        <div class="calculated">
+          Energy reduction
+          <strong id="energyOutput">--</strong>
+        </div>
+
+        <div class="calculated">
+          Water reuse
+          <strong id="reuseOutput">--</strong>
+        </div>
+
+      </div>
+
+      <p id="calculationMessage" role="status" aria-live="polite" style="margin-top:18px;color:#A8BAC8;font-size:12px;"></p>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+
+<section class="research" id="research">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="small-title">06 / SCIENTIFIC VALIDATION</div>
+      <h2>How Will We Test It?</h2>
+      <p>
+        The proposed system must be evaluated experimentally
+        to determine whether it achieves measurable improvements.
+      </p>
+    </div>
+
+    <div class="research-grid">
+
+      <div class="research-card">
+        <i class="fa-solid fa-temperature-high"></i>
+        <h3>Thermal Performance</h3>
+        <p>
+          Record inlet and outlet water temperatures to evaluate
+          heat transfer across the biochar and heat exchanger stages.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <i class="fa-solid fa-gauge-high"></i>
+        <h3>Energy & Flow</h3>
+        <p>
+          Measure pump energy, heat exchanger energy, and water
+          flow rate under controlled operating conditions.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <i class="fa-solid fa-chart-column"></i>
+        <h3>Comparative Analysis</h3>
+        <p>
+          Compare the baseline and prototype using the same thermal
+          load, test duration, and environmental conditions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="logo">
+    <i class="fa-solid fa-droplet"></i>Aqua<span>Byte</span>
+  </div>
+
+  <p>Smarter Cooling. Responsible Water Use. Sustainable Computing.</p>
+  <p style="margin-top:12px;">ISEF Research Project | Experimental data will be added after validation.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("active");
+  });
+});
+
+function calculateResults() {
+  const ids = [
+    "baseWater", "newWater",
+    "baseEnergy", "newEnergy",
+    "inputWater", "reusedWater"
+  ];
+
+  const values = {};
+
+  for (const id of ids) {
+    const raw = document.getElementById(id).value;
+
+    if (raw === "") {
+      showMessage("Please fill in all measurement fields.");
+      return;
+    }
+
+    const value = Number(raw);
+
+    if (!Number.isFinite(value) || value < 0) {
+      showMessage("Please enter valid non-negative numbers.");
+      return;
+    }
+
+    values[id] = value;
+  }
+
+  if (
+    values.baseWater === 0 ||
+    values.baseEnergy === 0 ||
+    values.inputWater === 0
+  ) {
+    showMessage("Baseline water, baseline energy, and input water must be greater than zero.");
+    return;
+  }
+
+  if (values.reusedWater > values.inputWater) {
+    showMessage("Reused water cannot exceed the total water entering the loop.");
+    return;
+  }
+
+  const water =
+    ((values.baseWater - values.newWater) / values.baseWater) * 100;
+
+  const energy =
+    ((values.baseEnergy - values.newEnergy) / values.baseEnergy) * 100;
+
+  const reuse =
+    (values.reusedWater / values.inputWater) * 100;
+
+  function format(value) {
+    return value.toFixed(2) + "%";
+  }
+
+  document.getElementById("waterSaving").textContent = format(water);
+  document.getElementById("energySaving").textContent = format(energy);
+  document.getElementById("waterReuse").textContent = format(reuse);
+
+  document.getElementById("waterOutput").textContent = format(water);
+  document.getElementById("energyOutput").textContent = format(energy);
+  document.getElementById("reuseOutput").textContent = format(reuse);
+
+  let message = "Calculations completed. ";
+
+  if (water < 0 || energy < 0) {
+    message += "A negative reduction means the prototype consumed more than the baseline for that metric.";
+  } else {
+    message += "These values describe the entered test data, not guaranteed future performance.";
+  }
+
+  showMessage(message);
+}
+
+function showMessage(message) {
+  document.getElementById("calculationMessage").textContent = message;
+}
+</script>
+
+</body>
+</html>
